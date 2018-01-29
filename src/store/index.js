@@ -12,6 +12,7 @@ export default new Vuex.Store({
     bla: 'nothing',
     ready: false,
     showNav: null,
+    showFilters: null,
     dogs: null
   },
   mutations: {
@@ -26,6 +27,9 @@ export default new Vuex.Store({
     },
     setShowNav(state, data) {
       state.showNav = data
+    },
+    setShowFilters(state, data) {
+      state.showFilters = data
     },
     setShowFilters(state,data) {
       state.showFilters = data

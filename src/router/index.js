@@ -7,8 +7,6 @@ import DogsLayout from '@/layouts/dogs'
 import Home from '@/pages/Home'
 import DogsPage from '@/pages/Dogs'
 
-import HelloWorld from '@/components/HelloWorld'
-
 Vue.use(Router)
 
 export default new Router({

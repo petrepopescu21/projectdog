@@ -3,21 +3,27 @@
       v-model="drawer"
       light
       fixed
-      absolute app></v-navigation-drawer>
+      absolute 
+      app
+      width="180">
+      <drawer-logo></drawer-logo>
+      </v-navigation-drawer>
 </template>
 
 <script>
+import DrawerLogo from '@/components/Drawers/Parts/Logo'
 export default {
-    name: "navdrawer",
-    computed: {
-        drawer: {
-            get() {
-            return this.$store.state['showNav']
-            },
-            set(val) {
-                this.$store.commit('setShowNav',val)
-            }
-        }
+  components: { DrawerLogo },
+  name: "navdrawer",
+  computed: {
+    drawer: {
+      get() {
+        return this.$store.state["showNav"];
+      },
+      set(val) {
+        this.$store.commit("setShowNav", val);
+      }
     }
-}
+  }
+};
 </script>

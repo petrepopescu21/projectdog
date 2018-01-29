@@ -3,7 +3,7 @@
     <top-toolbar />
     <filter-drawer></filter-drawer>
 <v-content>
-        <v-container>
+        <v-container fluid grid-list-md>
             <router-view />
         </v-container>
   </v-content>
@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import FilterDrawer from '@/components/Drawers/FilterDrawer'
-import TopToolbar from '@/components/Toolbars/TopToolbar'
+import FilterDrawer from "@/components/Drawers/FilterDrawer";
+import TopToolbar from "@/components/Toolbars/TopToolbar";
 export default {
-  components: {FilterDrawer,TopToolbar}
-}
+  components: { FilterDrawer, TopToolbar }
+};
 </script>

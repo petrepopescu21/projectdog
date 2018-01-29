@@ -3,7 +3,7 @@
     <v-parallax jumbotron class="jumbo">
       <div class="recenter">
         <img src="@/assets/colt_alb_alb.png" class="logo-image">
-        <div class="logo-font coltalb-slogan">{{l.titlu.top}}<br>{{l.titlu.bot}}</div>
+        <div class="coltalb-slogan">{{l.titlu.top}}<br>{{l.titlu.bot}}</div>
       </div>
     </v-parallax>
     <v-btn absolute dark fab color="pink" class="fab-scroll">
@@ -15,9 +15,12 @@
 
 <script>
 export default {
-  metaInfo: {
-    title: "Home"
+  metaInfo() {
+    return {
+      title: "Titlu"
+    }
   },
+
   computed: {
     l() {
       return this.$store.state.labels;

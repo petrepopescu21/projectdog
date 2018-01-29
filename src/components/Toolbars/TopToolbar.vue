@@ -1,11 +1,11 @@
 <template>
-    <v-toolbar app class="white grey--text" dark flat>
+    <v-toolbar app class="white grey--text" height="64px" dark flat>
         <v-toolbar-side-icon flat light color="grey darken-1" class="hidden-lg-and-up" @click.stop="toggleDrawer()"><i aria-hidden="true" class="material-icons icon">{{icon}}</i></v-toolbar-side-icon>
         <v-spacer></v-spacer>
         <div class="hidden-md-and-down">
             <v-btn class="heavy-text" flat color="grey darken-1">{{l.contact}}</v-btn>
-            <v-btn class="heavy-text" flat color="grey darken-1">{{l.desprenoi}}</v-btn>
-            <v-btn class="heavy-text" flat color="grey darken-1">{{l.adopta}}</v-btn>
+            <router-link  :to="{name:'home'}"><v-btn class="heavy-text" flat color="grey darken-1">{{l.desprenoi}}</v-btn></router-link>
+            <router-link  :to="{name:'dogs'}"><v-btn class="heavy-text" flat color="grey darken-1">{{l.adopta}}</v-btn></router-link>
             <v-btn class="heavy-text" flat color="grey darken-1">{{l.blog}}</v-btn>
         </div>
         <v-btn raised color="accent" dark>{{l.doneaza}}</v-btn>
@@ -30,7 +30,8 @@ export default {
     },
     methods: {
         toggleDrawer() {
-            this.$store.commit('setShowNav',!this.$store.state.showNav)
+            let modifier = (this.$route.name=='dogs'?'setShowFilters':'setShowNav')
+            this.$store.commit(modifier,!this.$store.state.showNav)
         },
         changeLang(lang) {
             this.$store.commit('setLang',lang)
