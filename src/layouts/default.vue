@@ -15,7 +15,10 @@
 import NavDrawer from '@/components/Drawers/NavDrawer'
 import TopToolbar from '@/components/Toolbars/TopToolbar'
 export default {
-    components: {NavDrawer,TopToolbar}
+    components: {NavDrawer,TopToolbar},
+    created() {
+      this.$store.commit('setShowNav',false)
+    }
 }
 </script>
 

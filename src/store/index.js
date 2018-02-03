@@ -13,9 +13,13 @@ export default new Vuex.Store({
     ready: false,
     showNav: null,
     showFilters: null,
-    dogs: null
+    dogs: null,
+    cachedDogs: {}
   },
   mutations: {
+    addDogToCache(state, data){
+      state.cachedDogs[data.name.toLowerCase()] = data
+    },
     setLabels(state, data) {
       state.labels = data
     },

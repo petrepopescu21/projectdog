@@ -6,6 +6,7 @@ import DogsLayout from '@/layouts/dogs'
 
 import Home from '@/pages/Home'
 import DogsPage from '@/pages/Dogs'
+import DogProfile from '@/pages/DogProfile'
 
 Vue.use(Router)
 
@@ -23,6 +24,10 @@ export default new Router({
         path: '/',
         component: Home,
         name: 'home'
+      },
+      {
+        path: '/dogs/:id',
+        component: DogProfile
       }]
     },
     //dogs layout

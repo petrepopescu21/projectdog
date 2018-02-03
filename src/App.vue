@@ -15,18 +15,26 @@ export default {
     };
   },
   created() {
-    this.$store.commit('setLang','en')
+    this.$store.commit("setLang", "en");
+    this.$c
+      .getEntries({
+        content_type: "dog",
+        select: "fields.name,fields.images",
+        order: "fields.scor"
+      })
+      .then(response => this.$store.commit("setDogs", response.items))
+      .catch(console.error);
   },
   computed: {
     ready() {
-      return this.$store.state.ready
+      return this.$store.state.ready;
     }
   }
 };
 </script>
 
 <style>
-  a {
-    text-decoration: none;
-  }
+a {
+  text-decoration: none;
+}
 </style>

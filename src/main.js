@@ -9,7 +9,14 @@ import store from './store'
 import Meta from 'vue-meta'
 
 Vue.config.productionTip = false
-Vue.use(Vuetify)
+Vue.use(Vuetify, {
+  theme: {
+    primary: '#03A9F4',
+    secondary: '#b0bec5',
+    accent: '#e91e63',
+    error: '#b71c1c'
+  }
+})
 Vue.use(Vuex)
 Vue.use(ContentfulPlugin)
 Vue.use(ImageHelper)

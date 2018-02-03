@@ -1,7 +1,7 @@
 <template>
 <v-app>
     <top-toolbar />
-    <filter-drawer></filter-drawer>
+    <nav-drawer />
 <v-content>
         <v-container fluid grid-list-md>
             <router-view />
@@ -12,9 +12,12 @@
 </template>
 
 <script>
-import FilterDrawer from "@/components/Drawers/FilterDrawer";
+import NavDrawer from "@/components/Drawers/NavDrawer";
 import TopToolbar from "@/components/Toolbars/TopToolbar";
 export default {
-  components: { FilterDrawer, TopToolbar }
+  components: { NavDrawer, TopToolbar },
+  created() {
+      this.$store.commit('setShowNav',null)
+  }
 };
 </script>

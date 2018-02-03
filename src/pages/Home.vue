@@ -6,7 +6,7 @@
         <div class="coltalb-slogan">{{l.titlu.top}}<br>{{l.titlu.bot}}</div>
       </div>
     </v-parallax>
-    <v-btn absolute dark fab color="pink" class="fab-scroll">
+    <v-btn absolute dark color="accent" fab class="fab-scroll">
     <v-icon>expand_more</v-icon>
     </v-btn>
   </div>
