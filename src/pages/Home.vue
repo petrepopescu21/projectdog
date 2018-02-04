@@ -17,7 +17,12 @@
 export default {
   metaInfo() {
     return {
-      title: "Despre noi"
+      title: "Despre noi",
+      meta: [
+          { name: "description", content: "Patrupezi fără pereche" },
+          { vmid: 'og:title', property: "og:title", content: "Fundația Colț Alb" },
+          { vmid: 'og:description', property: 'og:description', content: "Patrupezi fără pereche" }
+      ]
     };
   },
 

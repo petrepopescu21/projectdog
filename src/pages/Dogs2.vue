@@ -65,7 +65,12 @@ export default {
   },
   metaInfo() {
     return {
-      title: "Adopta"
+      title: "Supercăței",
+      meta: [
+          { name: "description", content: "Patrupezi fără pereche" },
+          { vmid: 'og:title', property: "og:title", content: "Supercăței | Colț Alb" },
+          { vmid: 'og:description', property: 'og:description', content: "Patrupezi fără pereche" }
+      ]
     }
   },
   computed: {

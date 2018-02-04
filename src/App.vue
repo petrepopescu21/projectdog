@@ -40,6 +40,21 @@ export default {
           vmid: "og:site_name",
           property: "og:site_name",
           content: "Fundația Colț Alb"
+        },
+        {
+          vmid: "og:image",
+          property: "og:image",
+          content: "https://coltalb.azurewebsites.net/static/fblogo.png"
+        },
+        {
+          vmid: "og:image:width",
+          property: "og:image:width",
+          content: "1024"
+        },
+        {
+          vmid: "og:image:height",
+          property: "og:image:height",
+          content: "1024"
         }
       ]
     };
