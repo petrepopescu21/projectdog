@@ -7,7 +7,9 @@ import ContentfulPlugin from './plugins/contentful'
 import ImageHelper from './plugins/imagehelper'
 import store from './store'
 import Meta from 'vue-meta'
-
+import PhotoSwipe from 'vue-simple-photoswipe/dist/vue-simple-photoswipe'
+Vue.use(PhotoSwipe)
+ 
 Vue.config.productionTip = false
 Vue.use(Vuetify, {
   theme: {

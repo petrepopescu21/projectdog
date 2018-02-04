@@ -5,7 +5,7 @@
       fixed
       absolute 
       app
-      width="360">
+      width="240">
       <drawer-logo></drawer-logo>
       <links-list class="hidden-lg-and-up" />
       <filters-list v-if="showFilters"/>
@@ -21,7 +21,7 @@ export default {
   name: "navdrawer",
   computed: {
     showFilters() {
-      return (this.$route.name=="dogs")?true:false
+      return (this.$route.name=="caini")?true:false
     },
     drawer: {
       get() {

@@ -3,9 +3,12 @@ import Router from 'vue-router'
 
 import Default from '@/layouts/default'
 import DogsLayout from '@/layouts/dogs'
+import DogsProfileLayout from '@/layouts/dogprofile'
+import DogsTwoLayout from '@/layouts/dogs2'
 
 import Home from '@/pages/Home'
 import DogsPage from '@/pages/Dogs'
+import DogsPageTwo from '@/pages/Dogs2'
 import DogProfile from '@/pages/DogProfile'
 
 Vue.use(Router)
@@ -24,10 +27,6 @@ export default new Router({
         path: '/',
         component: Home,
         name: 'home'
-      },
-      {
-        path: '/dogs/:id',
-        component: DogProfile
       }]
     },
     //dogs layout
@@ -35,11 +34,27 @@ export default new Router({
       path: '/',
       component: DogsLayout,
       children: [{
-        path: '/dogs',
+        path: '/caini',
         component: DogsPage,
-        name: 'dogs'
+        name: 'caini'
       }]
     },
+    //dogsv2 layout
+    {
+      path: '/',
+      component: DogsTwoLayout,
+      children:[
+        {
+          path: '/dogs',
+          component: DogsPageTwo,
+          name: 'dogs'
+        },
+        {
+          path: '/dogs/:id',
+          component: DogProfile
+        }
+      ]
+    }
 
   ]
 })

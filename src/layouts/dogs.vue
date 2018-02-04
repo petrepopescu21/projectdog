@@ -3,7 +3,8 @@
     <top-toolbar />
     <nav-drawer />
 <v-content>
-        <v-container fluid grid-list-md>
+        <v-container fluid><h1><p class="dog-title">Adopta</p></h1><h3><p class="dog-title">Ei sunt cainii nostri</p></h3></v-container>
+        <v-container fluid grid-list-xs>
             <router-view />
         </v-container>
   </v-content>
@@ -21,3 +22,12 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+    .dog-title {
+        font-size: 180%;
+    }
+    p {
+        margin-bottom: 0;
+    }
+</style>

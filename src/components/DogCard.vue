@@ -1,7 +1,7 @@
 <template>
-    <div class="dog-container" v-on:click="$router.push('/dogs/'+dog.name)">
+    <div class="dog-container" v-on:click="$router.push('/dogs/'+dog.name.toLowerCase())">
         <img class="image" v-bind:src="$i(dog.images[0],800,800)" width="100%" height="100%">
-        <div class="overlay">
+        <div class="hidden-sm-and-down overlay">
             <div class="text">{{dog.name}}</div>
         </div>
     </div>
@@ -14,9 +14,12 @@ export default {
 </script>
 
 <style scoped>
+.image {
+  display: block
+}
 .dog-container {
   position: relative;
-  height: 98.75%;
+  cursor: pointer;
 }
 
 .overlay {
@@ -25,11 +28,9 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100%;
-  width: 100%;
   opacity: 0;
   transition: .5s ease;
-  background-color: rgba(3,169,244,0.7);
+  background-color: rgba(3,169,244,0.4);
 }
 
 .dog-container:hover .overlay {

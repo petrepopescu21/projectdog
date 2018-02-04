@@ -15,7 +15,7 @@ export default {
     };
   },
   created() {
-    this.$store.commit("setLang", "en");
+    this.$store.commit("setLang", "ro");
     this.$c
       .getEntries({
         content_type: "dog",
@@ -37,4 +37,19 @@ export default {
 a {
   text-decoration: none;
 }
+
+img {
+  image-rendering: -webkit-optimize-contrast !important;
+}
+
+.pswp__counter {
+  display: none !important;
+}
+
+@media screen and (min-width: 960px) {
+  .container.grid-list-xs .layout .flex {
+    padding: 4px
+  }
+}
+
 </style>
