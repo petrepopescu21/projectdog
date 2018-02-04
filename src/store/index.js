@@ -1,20 +1,25 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import ContentfulPlugin from './plugin'
-Vue.use(Vuex)
+import Vue from "vue";
+import Vuex from "vuex";
+import ContentfulPlugin from "./plugin";
+Vue.use(Vuex);
 
 export default new Vuex.Store({
-  
   plugins: [ContentfulPlugin],
   state: {
+    locales: [
+      { int: "en", ext: "en_US" },
+      { int: "ro", ext: "ro_RO" },
+      { int: "de", ext: "de_DE" }
+    ],
     labels: {},
-    lang: 'en',
-    bla: 'nothing',
+    lang: "en",
+    bla: "nothing",
     ready: false,
     showNav: null,
     showFilters: null,
     dogs: null,
     cachedDogs: {},
+    cachedLang: "en",
     largeThumbs: false,
     filters: {
       age: {
@@ -34,35 +39,41 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    setFilters(state,data) {
-      this.filters = data
+    setCacheLang(state,data) {
+      state.cachedLang = data
     },
-    addDogToCache(state, data){
-      state.cachedDogs[data.name.toLowerCase()] = data
+    emptyDogCache(state){
+      state.cachedDogs = {}
     },
-    toggleThumbs(state){
-      state.largeThumbs = !state.largeThumbs
+    setFilters(state, data) {
+      state.filters = data;
+    },
+    addDogToCache(state, data) {
+      state.cachedDogs[data.ro.name.toLowerCase()] = data;
+    },
+    toggleThumbs(state) {
+      state.largeThumbs = !state.largeThumbs;
     },
     setLabels(state, data) {
-      state.labels = data
+      state.labels = data;
     },
     setLang(state, data) {
-      state.lang = data
+      state.lang = data;
     },
-    setReady(state,data) {
-      state.ready = data
+    setReady(state, data) {
+      state.ready = data;
     },
     setShowNav(state, data) {
-      state.showNav = data
+      state.showNav = data;
     },
     setShowFilters(state, data) {
-      state.showFilters = data
+      state.showFilters = data;
     },
-    setShowFilters(state,data) {
-      state.showFilters = data
+    setShowFilters(state, data) {
+      state.showFilters = data;
     },
-    setDogs(state,data) {
-      state.dogs = data
+    setDogs(state, data) {
+      state.dogs = data;
     }
   }
-})
+});

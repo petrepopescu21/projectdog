@@ -5,25 +5,69 @@
 <script>
 export default {
   name: "App",
-  metaInfo: {
-    title: "Colt Alb",
-    titleTemplate: "%s | Colt Alb"
+  metaInfo() {
+    return {
+      title: "",
+      titleTemplate: "%s | Colt Alb",
+      htmlAttrs: {
+        lang: this.$store.state.lang
+      },
+      meta: [
+        { charset: "utf-8" },
+        { vmid: "og:locale", property: "og:locale", content: this.locale },
+        {
+          vmid: "og:locale:alternate",
+          property: "og:locale:alternate",
+          content: "en_US"
+        },
+        {
+          vmid: "og:locale:alternate",
+          property: "og:locale:alternate",
+          content: "ro_RO"
+        },
+        {
+          vmid: "og:url",
+          property: "og:url",
+          content: "https://coltalb.azurewebsites.net" + this.$route.fullPath
+        },
+        { vmid: "og:type", property: "og:type", content: "website" },
+        {
+          vmid: "fb:app_id",
+          property: "fb:app_id",
+          content: "205040653384174"
+        },
+        {
+          vmid: "og:site_name",
+          property: "og:site_name",
+          content: "Fundația Colț Alb"
+        }
+      ]
+    };
   },
   data() {
     return {
-      labels: {}
+      labels: {},
+      locale: "ro_RO"
     };
   },
   created() {
-    this.$store.commit("setLang", "ro");
+    let queryLocale = this.$route.query.lang || this.$route.query.fb_locale;
+    let supportedLocale = this.$store.state.locales.filter(
+      locale => queryLocale == locale.ext || queryLocale == locale.int
+    )[0] || { int: "ro", ext: "ro_RO" };
+    console.log(this.$route);
+    this.locale = supportedLocale.ext;
+    this.$store.commit("setLang", supportedLocale.int);
     this.$c
       .getEntries({
         content_type: "dog",
-        select: "fields.name,fields.images,fields.dataNasterii,fields.sex,fields.talie",
+        select:
+          "fields.name,fields.images,fields.dataNasterii,fields.sex,fields.talie",
         order: "fields.scor"
       })
       .then(response => this.$store.commit("setDogs", response.items))
       .catch(console.error);
+    this.$router.replace(this.$route.path);
   },
   computed: {
     ready() {
@@ -48,7 +92,7 @@ img {
 
 @media screen and (min-width: 960px) {
   .container.grid-list-xs .layout .flex {
-    padding: 4px
+    padding: 4px;
   }
 }
 
@@ -57,5 +101,4 @@ img {
     width: 70px !important;
   }
 }
-
 </style>

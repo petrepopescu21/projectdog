@@ -17,6 +17,7 @@
     "vue-photoswipe": "^1.0.3",
     "vue-router": "^3.0.1",
     "vue-simple-photoswipe": "^1.0.3",
+    "vue-social-sharing": "^2.3.3",
     "vuetify": "^0.17.6",
     "vuex": "^3.0.1"
   },

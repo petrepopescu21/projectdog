@@ -8,6 +8,9 @@ import ImageHelper from './plugins/imagehelper'
 import store from './store'
 import Meta from 'vue-meta'
 import PhotoSwipe from 'vue-simple-photoswipe/dist/vue-simple-photoswipe'
+import SocialSharing from 'vue-social-sharing'
+
+Vue.use(SocialSharing);
 Vue.use(PhotoSwipe)
  
 Vue.config.productionTip = false

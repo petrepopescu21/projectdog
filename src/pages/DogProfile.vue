@@ -18,6 +18,14 @@
                             <h1><p class="dog-title">{{dog.name}}</p></h1>
                             <h2>{{dog.rezumat}}</h2><br>
                         </div>
+                        <social-sharing :url='"https://coltalb.azurewebsites.net/dogs/"+dog.name+"/?lang="+lang' inline-template>
+                          <div>
+                            <network network="facebook">
+                              <v-btn><v-icon>share</v-icon></v-btn>
+                            </network>
+                          </div>
+                        </social-sharing>
+                        
                         <p class="desc">{{dog.description}}</p>
                     </v-container>
                     <v-container fluid grid-list-xs>
@@ -40,56 +48,96 @@ export default {
     return {
       ready: false,
       fourohfour: false,
-      dog: null
+      multiLangDog: {}
     };
   },
+  metaInfo() {
+    if (this.dog == null) return { title: "Doggo" };
+    else
+      return {
+        title: this.dog.name,
+        meta: [
+          { name: "description", content: this.dog.rezumat },
+          { vmid: 'og:title', property: "og:title", content: this.dog.name },
+          { vmid: 'og:description', property: 'og:description', content: this.dog.rezumat },
+          { vmid: "og:image", property: 'og:image', content: this.$i(this.dog.images[0], 800, 800) },
+          { vmid: "og:image:width", property: "og:image:width", content: "800"},
+          { vmid: "og:image:height", property: "og:image:height", content: "800"}
+        ]
+      };
+  },
   computed: {
-      largeThumbs() {
-        return this.$store.state.largeThumbs
-      },
-      gallery() {
-          let maxw = 2500
-          let maxh = 1500
-          var ret = []
-          this.dog.images.forEach(image=>{
-              let s = {w:image.fields.file.details.image.width,h:image.fields.file.details.image.height}
-              let f = {w:0,h:0}
-              let ratio = s.w/s.h
-              if(s.w>s.h)
-                {
-                    f.w=(s.w>maxw)?maxw:s.w
-                    f.h=f.w/ratio
-                }
-              else {
-                  f.h=(s.h>maxh)?maxh:s.h
-                  f.w=f.h*ratio
-              }
-              ret.push({src:this.$i(image,1920,1200,false),w:f.w,h:f.h})
-          })
-          return ret
-      }
+    lang() {
+      return this.$store.state.lang;
+    },
+    dog() {
+      if (this.multiLangDog == {}) return null;
+      return this.multiLangDog[this.lang];
+    },
+    largeThumbs() {
+      return this.$store.state.largeThumbs;
+    },
+    gallery() {
+      let maxw = 2500;
+      let maxh = 1500;
+      var ret = [];
+      this.dog.images.forEach(image => {
+        let s = {
+          w: image.fields.file.details.image.width,
+          h: image.fields.file.details.image.height
+        };
+        let f = { w: 0, h: 0 };
+        let ratio = s.w / s.h;
+        if (s.w > s.h) {
+          f.w = s.w > maxw ? maxw : s.w;
+          f.h = f.w / ratio;
+        } else {
+          f.h = s.h > maxh ? maxh : s.h;
+          f.w = f.h * ratio;
+        }
+        ret.push({ src: this.$i(image, 1920, 1200, false), w: f.w, h: f.h });
+      });
+      return ret;
+    }
   },
   created() {
     if (
       this.$store.state.cachedDogs[this.$route.params.id.toLowerCase()] == null
-    )
-      this.$c
-        .getEntries({
-          content_type: "dog",
-          "fields.name[match]": this.$route.params.id
-        })
-        .then(response => {
-          console.log(response);
+    ) {
+      var ro = this.$c.getEntries({
+        locale: "ro",
+        content_type: "dog",
+        "fields.name[match]": this.$route.params.id
+      });
+
+      var en = this.$c.getEntries({
+        locale: "en",
+        content_type: "dog",
+        "fields.name[match]": this.$route.params.id
+      });
+
+      Promise.all([ro, en])
+        .then(responses => {
+          console.log(responses);
           this.ready = true;
-          if (response.total == 0) this.fourohfour = true;
+          if (responses[0].total == 0) this.fourohfour = true;
           else {
-            this.dog = response.items[0].fields;
-            this.$store.commit("addDogToCache", this.dog);
+            var output = {
+              ro: responses[0].items[0].fields,
+              en: responses[1].items[0].fields
+            };
+            delete output.en.images;
+            output.en.images = output.ro.images;
+            this.multiLangDog = output;
+            this.$store.commit("addDogToCache", this.multiLangDog);
           }
+        })
+        .catch(err => {
+          console.log(err);
         });
-    else {
+    } else {
       this.ready = true;
-      this.dog = this.$store.state.cachedDogs[
+      this.multiLangDog = this.$store.state.cachedDogs[
         this.$route.params.id.toLowerCase()
       ];
       console.log("Cache hit");
@@ -100,7 +148,7 @@ export default {
 
 <style scoped>
 .preview-img-item {
-    cursor: pointer;
+  cursor: pointer;
 }
 .narrow {
   text-align: left;
@@ -116,6 +164,6 @@ export default {
 }
 
 .desc {
-    font-size: 120%;
+  font-size: 120%;
 }
 </style>

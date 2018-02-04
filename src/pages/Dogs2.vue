@@ -63,8 +63,10 @@ export default {
   components: {
     DogCard
   },
-  metaInfo: {
-    title: "Dogs"
+  metaInfo() {
+    return {
+      title: "Adopta"
+    }
   },
   computed: {
     dogs() {
