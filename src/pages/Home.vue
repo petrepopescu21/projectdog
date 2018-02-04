@@ -83,9 +83,10 @@ export default {
   .coltalb-slogan {
     align-self: center;
     line-height: normal;
-    font-size: 25px;
+    font-size: 40px;
     margin: 0 16px;
     padding-top: 8px;
+    text-align: center;
   }
 
   .logo-image {

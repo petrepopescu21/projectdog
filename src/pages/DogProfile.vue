@@ -14,7 +14,7 @@
                 <div class="narrow">
                     <v-container fluid>
                         <div class="title-container">
-                            <img width="150px" src="@/assets/colt_alb_negru.png">
+                            <img class="page-logo" width="150px" src="@/assets/colt_alb_negru.png">
                             <h1><p class="dog-title">{{dog.name}}</p></h1>
                             <h2>{{dog.rezumat}}</h2><br>
                         </div>
@@ -44,6 +44,9 @@ export default {
     };
   },
   computed: {
+      largeThumbs() {
+        return this.$store.state.largeThumbs
+      },
       gallery() {
           let maxw = 2500
           let maxh = 1500

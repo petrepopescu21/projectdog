@@ -17,7 +17,7 @@ export default {
 </script>
 <style scoped>
 .bg {
-  background: rgb(3,169,244);
+  background: rgb(3, 169, 244);
   display: flex;
   padding: 24px;
   justify-content: center;

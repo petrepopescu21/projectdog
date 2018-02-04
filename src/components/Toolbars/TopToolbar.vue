@@ -47,7 +47,7 @@ export default {
         },
         
         icon() {
-            if(this.$route.name=="dogs")
+            if(this.$route.name=="caini")
                 return 'sort'
             else return 'menu'
         }

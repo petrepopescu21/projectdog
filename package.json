@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "contentful": "^5.0.5",
+    "moment": "^2.20.1",
     "vue": "^2.5.2",
     "vue-meta": "^1.4.2",
     "vue-photoswipe": "^1.0.3",

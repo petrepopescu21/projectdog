@@ -19,7 +19,7 @@ export default {
     this.$c
       .getEntries({
         content_type: "dog",
-        select: "fields.name,fields.images",
+        select: "fields.name,fields.images,fields.dataNasterii,fields.sex,fields.talie",
         order: "fields.scor"
       })
       .then(response => this.$store.commit("setDogs", response.items))
@@ -49,6 +49,12 @@ img {
 @media screen and (min-width: 960px) {
   .container.grid-list-xs .layout .flex {
     padding: 4px
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .page-logo {
+    width: 70px !important;
   }
 }
 

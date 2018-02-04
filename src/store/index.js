@@ -14,11 +14,34 @@ export default new Vuex.Store({
     showNav: null,
     showFilters: null,
     dogs: null,
-    cachedDogs: {}
+    cachedDogs: {},
+    largeThumbs: false,
+    filters: {
+      age: {
+        s: false,
+        m: false,
+        l: false
+      },
+      talie: {
+        mica: false,
+        medie: false,
+        mare: false
+      },
+      sex: {
+        M: false,
+        F: false
+      }
+    }
   },
   mutations: {
+    setFilters(state,data) {
+      this.filters = data
+    },
     addDogToCache(state, data){
       state.cachedDogs[data.name.toLowerCase()] = data
+    },
+    toggleThumbs(state){
+      state.largeThumbs = !state.largeThumbs
     },
     setLabels(state, data) {
       state.labels = data
