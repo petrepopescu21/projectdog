@@ -10,15 +10,19 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.17.1",
+    "braintree-web": "^3.31.0",
+    "braintree-web-drop-in": "^1.9.4",
     "contentful": "^5.0.5",
     "moment": "^2.20.1",
     "vue": "^2.5.2",
+    "vue-braintree-hosted-fields": "^0.3.0",
     "vue-meta": "^1.4.2",
     "vue-photoswipe": "^1.0.3",
     "vue-router": "^3.0.1",
     "vue-simple-photoswipe": "^1.0.3",
     "vue-social-sharing": "^2.3.3",
-    "vuetify": "^0.17.6",
+    "vuetify": "^1.0.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

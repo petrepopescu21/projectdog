@@ -10,6 +10,7 @@ import Home from '@/pages/Home'
 import DogsPage from '@/pages/Dogs'
 import DogsPageTwo from '@/pages/Dogs2'
 import DogProfile from '@/pages/DogProfile'
+import DonatePage from '@/pages/Donate'
 
 Vue.use(Router)
 
@@ -52,6 +53,10 @@ export default new Router({
         {
           path: '/dogs/:id',
           component: DogProfile
+        },
+        {
+          path: '/donate',
+          component: DonatePage
         }
       ]
     }
