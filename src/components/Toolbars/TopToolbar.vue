@@ -30,8 +30,9 @@ export default {
     },
     methods: {
         toggleDrawer() {
-            let modifier = (this.$route.name=='dogs'?'setShowFilters':'setShowNav')
-            this.$store.commit(modifier,!this.$store.state.showNav)
+
+            let modifier = 'setShowNav'
+            this.$store.commit(modifier,!this.$store.state[modifier])
         },
         changeLang(lang) {
             this.$store.commit('setLang',lang)
@@ -46,7 +47,7 @@ export default {
         },
         
         icon() {
-            if(this.$route.name=="dogs")
+            if(this.$route.name=="caini")
                 return 'sort'
             else return 'menu'
         }

@@ -6,7 +6,7 @@
         <div class="coltalb-slogan">{{l.titlu.top}}<br>{{l.titlu.bot}}</div>
       </div>
     </v-parallax>
-    <v-btn absolute dark fab color="pink" class="fab-scroll">
+    <v-btn absolute dark color="accent" fab class="fab-scroll">
     <v-icon>expand_more</v-icon>
     </v-btn>
   </div>
@@ -17,7 +17,12 @@
 export default {
   metaInfo() {
     return {
-      title: "Titlu"
+      title: "Despre noi",
+      meta: [
+          { name: "description", content: "Patrupezi fără pereche" },
+          { vmid: 'og:title', property: "og:title", content: "Fundația Colț Alb" },
+          { vmid: 'og:description', property: 'og:description', content: "Patrupezi fără pereche" }
+      ]
     };
   },
 
@@ -83,9 +88,10 @@ export default {
   .coltalb-slogan {
     align-self: center;
     line-height: normal;
-    font-size: 25px;
+    font-size: 40px;
     margin: 0 16px;
     padding-top: 8px;
+    text-align: center;
   }
 
   .logo-image {

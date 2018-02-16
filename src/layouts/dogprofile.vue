@@ -3,9 +3,7 @@
       <nav-drawer />
       <top-toolbar />
         <v-content>
-          <v-container fluid class="p-0">
             <router-view />
-          </v-container>
         </v-content>
       <v-footer app></v-footer>
     </v-app>
@@ -21,11 +19,3 @@ export default {
     }
 }
 </script>
-
-<style>
-.p-0 {
-  padding: 0;
-}
-
-
-</style>
