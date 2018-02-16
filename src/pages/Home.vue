@@ -18,7 +18,7 @@ export default {
   metaInfo() {
     return {
       title: "Titlu"
-    }
+    };
   },
 
   computed: {
