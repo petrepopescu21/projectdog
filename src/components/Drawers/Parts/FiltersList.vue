@@ -70,7 +70,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .filter-section {
   margin-top: 10px;
   margin-bottom: 20px;
