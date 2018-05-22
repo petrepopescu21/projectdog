@@ -8,7 +8,7 @@
             <router-link  :to="{name:'dogs'}"><v-btn class="heavy-text" flat color="grey darken-1">{{l.adopta}}</v-btn></router-link>
             <v-btn class="heavy-text" flat color="grey darken-1">{{l.blog}}</v-btn>
         </div>
-        <v-btn raised color="accent" dark>{{l.doneaza}}</v-btn>
+        <v-btn :to="{name:'donate'}" raised color="accent" dark>{{l.doneaza}}</v-btn>
         <v-menu>
         <v-btn class="heavy-text" flat color="grey darken-1" slot="activator">{{x}}</v-btn>
         <v-list>
@@ -25,7 +25,7 @@ export default {
     name: "toptoolbar",
     data() {
         return {
-            langs: ['en','ro','de']
+            langs: ['en','ro']
         }
     },
     methods: {

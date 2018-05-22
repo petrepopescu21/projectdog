@@ -56,7 +56,8 @@ export default new Router({
         },
         {
           path: '/donate',
-          component: DonatePage
+          component: DonatePage,
+          name: 'donate'
         }
       ]
     }

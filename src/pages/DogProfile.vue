@@ -18,13 +18,13 @@
                             <h1><p class="dog-title">{{dog.name}}</p></h1>
                             <h2>{{dog.rezumat}}</h2><br>
                         </div>
-                        <social-sharing :url='"https://coltalb.azurewebsites.net/dogs/"+dog.name+"/?lang="+lang' inline-template>
+                        <!-- <social-sharing :url='"https://coltalb.azurewebsites.net/dogs/"+dog.name+"/?lang="+lang' inline-template>
                           <div>
                             <network network="facebook">
                               <v-btn><v-icon>share</v-icon></v-btn>
                             </network>
                           </div>
-                        </social-sharing>
+                        </social-sharing> -->
                         
                         <p class="desc">{{dog.description}}</p>
                     </v-container>

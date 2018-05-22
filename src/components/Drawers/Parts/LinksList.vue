@@ -26,7 +26,7 @@ export default {
   name: "links-list",
   data() {
     return {
-      items: [{ title: "desprenoi", route:"home" }, { title: "adopta", route:"dogs" }]
+      items: [{ title: "desprenoi", route:"home" }, { title: "adopta", route:"dogs" }, {title: "doneaza", route: "donate"}]
     };
   },
   computed: {
