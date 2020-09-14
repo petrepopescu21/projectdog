@@ -13,7 +13,7 @@ pr:
     - releases/*
   paths:
     exclude:
-    - docs/README.md
+    - README.md
     
 pool:
   vmImage: 'ubuntu-latest'
